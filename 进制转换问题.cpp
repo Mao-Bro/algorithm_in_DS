@@ -1,37 +1,37 @@
-///* ±àĞ´Ò»¸ö³ÌĞò£¬½«Ê®½øÖÆÊı×ª»»³Ébase½øÖÆÊı */
-//
-//#include <iostream>
-//#include <stack>
-//
-//using namespace std;
-//
-//char digit[] = { '0','1', '2','3','4','5','6','7','8','9','a','b','c','d','e','f' };
-//
-//int number;		//number±íÊ¾ÎÒÃÇÒª×ª»»µÄÊ®½øÖÆÊı
-//int base;		//base±íÊ¾ÎÒÃÇÒª½«number×ª»»³Ébase½øÖÆÊı
-//
-//stack<int> s;
-//
-//int main(void) {
-//	cin >> number >> base;
-//
-//	//ÓÉÓÚ½øÖÆ×ª»»µÄ¹ı³Ì·ûºÏ¡°ÏÈ½øºó³ö¡±µÄ¹æÔò£¬Òò´ËÎÒÃÇ¿ÉÒÔ½èÖú¶ÑÕ»ÊµÏÖ
-//	int temp = number;
-//	while (temp) {
-//		s.push(temp % base);
-//		temp /= base;
-//	}
-//
-//	string ans;
-//	while (!s.empty()) {
-//		ans += digit[s.top()];
-//		s.pop();
-//	}
-//
-//	if (base == 2) ans += 'B';
-//	if (base == 16) ans += 'H';
-//
-//	cout << number << "×ª»»Îª" << base << "½øÖÆÊıÎª" << ans;
-//
-//	return 0;
-//}
+/* ç¼–å†™ä¸€ä¸ªç¨‹åºï¼Œå°†åè¿›åˆ¶æ•°è½¬æ¢æˆbaseè¿›åˆ¶æ•° */
+
+#include <iostream>
+#include <stack>
+
+using namespace std;
+
+char digit[] = { '0','1', '2','3','4','5','6','7','8','9','a','b','c','d','e','f' };
+
+int number;		//numberè¡¨ç¤ºæˆ‘ä»¬è¦è½¬æ¢çš„åè¿›åˆ¶æ•°
+int base;		//baseè¡¨ç¤ºæˆ‘ä»¬è¦å°†numberè½¬æ¢æˆbaseè¿›åˆ¶æ•°
+
+stack<int> s;
+
+int main(void) {
+	cin >> number >> base;
+
+	//ç”±äºè¿›åˆ¶è½¬æ¢çš„è¿‡ç¨‹ç¬¦åˆâ€œå…ˆè¿›åå‡ºâ€çš„è§„åˆ™ï¼Œå› æ­¤æˆ‘ä»¬å¯ä»¥å€ŸåŠ©å †æ ˆå®ç°
+	int temp = number;
+	while (temp) {
+		s.push(temp % base);
+		temp /= base;
+	}
+
+	string ans;
+	while (!s.empty()) {
+		ans += digit[s.top()];
+		s.pop();
+	}
+
+	if (base == 2) ans += 'B';
+	if (base == 16) ans += 'H';
+
+	cout << number << "è½¬æ¢ä¸º" << base << "è¿›åˆ¶æ•°ä¸º" << ans;
+
+	return 0;
+}
