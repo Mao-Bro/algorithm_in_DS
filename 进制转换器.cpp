@@ -1,76 +1,76 @@
-///* ÊµÏÖÒ»¸ö¿ÉÒÔ´ÓÈÎÒâ½øÖÆ×ª»»³ÉÈÎÒâ½øÖÆµÄ½øÖÆ×ª»»Æ÷ */
-//
-//#include <iostream>
-//#include <stack>
-//
-//using namespace std;
-//
-//char digit[] = { '0','1','2','3','4','5','6','7','8','9','a','b','c','d', 'e', 'f' };
-//
-//stack<int> s;
-//
-//int source_scale;		//Ô´½øÖÆ
-//int destination_scale;	//Ä¿µÄ½øÖÆ
-//
-//string number;
-//
-//int main(void) {
-//	cout << "ÄãÒª×ª»»Ò»¸ö¶àÉÙ½øÖÆµÄÊı£º" << endl;
-//	cin >> source_scale;
-//	cout << "ÄãÒª½«Õâ¸öÊı×Ö×ª»»³É¶àÉÙ½øÖÆ£º" << endl;
-//	cin >> destination_scale;
-//
-//	cout << "ÇëÊäÈëÄãÒª×ª»»µÄÊı×Ö£º" << endl;
-//	cin >> number;
-//
-//	//ÎÒÃÇÏÈÈ¥³ıÓÃ»§ÔÚ¶ş½øÖÆÊıµ±ÖĞµÄBºó×º£¬ºÍÊ®Áù½øÖÆÊıºóÃæµÄHºó×º
-//	char last_ch = number[number.length() - 1];
-//	if (last_ch == 'b' || last_ch == 'B' || last_ch == 'h' || last_ch == 'H') {
-//		(void)number.erase(number.length() - 1);
-//	}
-//
-//	//ÎÒÃÇĞèÒªÏÈ½«Õâ¸öÊı×Ö×ª»»³ÉÊ®½øÖÆ£¬ÔÙ½«Ê®½øÖÆ×ª»»³ÉÄ¿±ê½øÖÆ£º
-//	int ten_scale = 0;
-//	int multi = 0;
-//	for (int i = number.length() - 1; i >= 0; i--, multi++) {
-//		char ch = number[i];
-//		int last_num = 0;
-//		if ('0' <= ch && ch <= '9') {
-//			last_num = ch - '0';
-//		}
-//		else if ('a' <= ch && ch <= 'f') {
-//			last_num = ch - 'a' + 10;
-//		}
-//		else if ('A' <= ch && ch <= 'F') {
-//			last_num = ch - 'A' + 10;
-//		}
-//		else {
-//			cout << "ÄãÊäÈëÁËÒ»¸ö·Ç·¨×Ö·û£¡£¡£¡";
-//			return 0;
-//		}
-//		ten_scale += last_num * (int)pow(source_scale, multi);
-//	}
-//
-//	//´ËÊ±ten_scaleÒÑ¾­¼ÇÂ¼ÁËÔ­Êı×ÖµÄÊ®½øÖÆĞÎÊ½£¬ÎÒÃÇÔÙ½«Õâ¸öÊı×Ö×ª»»³ÉÄ¿µÄ½øÖÆ¼´¿É
-//	while (ten_scale) {
-//		s.push(ten_scale % destination_scale);
-//		ten_scale /= destination_scale;
-//	}
-//
-//	string ans;
-//
-//	while (!s.empty()) {
-//		ans += digit[s.top()];
-//		s.pop();
-//	}
-//
-//	if (destination_scale == 16) ans += 'H';
-//	if (destination_scale == 2) ans += 'B';
-//
-//	cout << endl;
-//	cout << "----------------------------------------------------------------" << endl;
-//	cout << source_scale << "½øÖÆÊı" << number << "×ª»»³É" << destination_scale << "½øÖÆÊı,½á¹ûÎª" << ans << endl;
-//	cout << "----------------------------------------------------------------" << endl;
-//
-//	return 0;
-//}
+/* å®ç°ä¸€ä¸ªå¯ä»¥ä»ä»»æ„è¿›åˆ¶è½¬æ¢æˆä»»æ„è¿›åˆ¶çš„è¿›åˆ¶è½¬æ¢å™¨ */
+
+#include <iostream>
+#include <stack>
+
+using namespace std;
+
+char digit[] = { '0','1','2','3','4','5','6','7','8','9','a','b','c','d', 'e', 'f' };
+
+stack<int> s;
+
+int source_scale;		//æºè¿›åˆ¶
+int destination_scale;	//ç›®çš„è¿›åˆ¶
+
+string number;
+
+int main(void) {
+	cout << "ä½ è¦è½¬æ¢ä¸€ä¸ªå¤šå°‘è¿›åˆ¶çš„æ•°ï¼š" << endl;
+	cin >> source_scale;
+	cout << "ä½ è¦å°†è¿™ä¸ªæ•°å­—è½¬æ¢æˆå¤šå°‘è¿›åˆ¶ï¼š" << endl;
+	cin >> destination_scale;
+
+	cout << "è¯·è¾“å…¥ä½ è¦è½¬æ¢çš„æ•°å­—ï¼š" << endl;
+	cin >> number;
+
+	//æˆ‘ä»¬å…ˆå»é™¤ç”¨æˆ·åœ¨äºŒè¿›åˆ¶æ•°å½“ä¸­çš„Båç¼€ï¼Œå’Œåå…­è¿›åˆ¶æ•°åé¢çš„Håç¼€
+	char last_ch = number[number.length() - 1];
+	if (last_ch == 'b' || last_ch == 'B' || last_ch == 'h' || last_ch == 'H') {
+		(void)number.erase(number.length() - 1);
+	}
+
+	//æˆ‘ä»¬éœ€è¦å…ˆå°†è¿™ä¸ªæ•°å­—è½¬æ¢æˆåè¿›åˆ¶ï¼Œå†å°†åè¿›åˆ¶è½¬æ¢æˆç›®æ ‡è¿›åˆ¶ï¼š
+	int ten_scale = 0;
+	int multi = 0;
+	for (int i = number.length() - 1; i >= 0; i--, multi++) {
+		char ch = number[i];
+		int last_num = 0;
+		if ('0' <= ch && ch <= '9') {
+			last_num = ch - '0';
+		}
+		else if ('a' <= ch && ch <= 'f') {
+			last_num = ch - 'a' + 10;
+		}
+		else if ('A' <= ch && ch <= 'F') {
+			last_num = ch - 'A' + 10;
+		}
+		else {
+			cout << "ä½ è¾“å…¥äº†ä¸€ä¸ªéæ³•å­—ç¬¦ï¼ï¼ï¼";
+			return 0;
+		}
+		ten_scale += last_num * (int)pow(source_scale, multi);
+	}
+
+	//æ­¤æ—¶ten_scaleå·²ç»è®°å½•äº†åŸæ•°å­—çš„åè¿›åˆ¶å½¢å¼ï¼Œæˆ‘ä»¬å†å°†è¿™ä¸ªæ•°å­—è½¬æ¢æˆç›®çš„è¿›åˆ¶å³å¯
+	while (ten_scale) {
+		s.push(ten_scale % destination_scale);
+		ten_scale /= destination_scale;
+	}
+
+	string ans;
+
+	while (!s.empty()) {
+		ans += digit[s.top()];
+		s.pop();
+	}
+
+	if (destination_scale == 16) ans += 'H';
+	if (destination_scale == 2) ans += 'B';
+
+	cout << endl;
+	cout << "----------------------------------------------------------------" << endl;
+	cout << source_scale << "è¿›åˆ¶æ•°" << number << "è½¬æ¢æˆ" << destination_scale << "è¿›åˆ¶æ•°,ç»“æœä¸º" << ans << endl;
+	cout << "----------------------------------------------------------------" << endl;
+
+	return 0;
+}
