@@ -1,37 +1,37 @@
-///* Ö»¿¼ÂÇÒ»ÖÖÀ¨ºÅ£¬n¶ÔÀ¨ºÅ¹²ÓÐ¶àÉÙÖÖ¿ÉÄÜµÄºÏ·¨Æ¥ÅäÐòÁÐ£¿ */
-//
-///* Õâ¸öÎÊÌâµÄ´ð°¸ÏÔÈ»ÊÇÒ»¸ö¿¨ÌØÀ¼Êý£¬ÎÒÃÇ½ñÌìÒª½â¾öµÄÊÇÈçºÎ½«ËùÓÐºÏ·¨µÄÇé¿öÈ«²¿Éú³É³öÀ´ */
-//
-///* ¶ÔÓÚÕâ¸öÎÊÌâ£¬ÎÒÃÇ¿ÉÒÔ²ÉÓÃ»ØËÝËã·¨È¥Éú³ÉÒ»¿Å¶þ²æÊ÷£¬½«ËùÓÐ¿ÉÄÜµÄÇé¿ö±éÀú³öÀ´£¬
-//µ«ÊÇÕâÑùµÄ»°Ì«¹ýÓÚ±©Á¦£¬ÎÒÃÇ¿ÉÒÔ¼ÓÉÏ¼ôÖ¦µÄ²ßÂÔ£¬
-//ÔÚÊ²Ã´Çé¿öÏÂ£¬ÎÒÃÇ¿ÉÒÔÖ±½Ó·ÅÆúÏÂÃæµÄÉú³ÉÄØ£¬Ö»ÐèÒª°ÑÎÕ×¡Á½µã£º
-//£¨1£©ÓÒÀ¨ºÅµÄÊýÁ¿¾ø¶Ô²»ÄÜ³¬¹ý×óÀ¨ºÅ£»
-//£¨2£©×óÀ¨ºÅµÄÊýÁ¿²»ÄÜ³¬¹ýn */
-//
-//#include <iostream>
-//
-//using namespace std;
-//
-//int n;
-//
-//void dfs(string str, int left, int right) {
-//	if (right > left) return;	//ÓÒÀ¨ºÅÊýÁ¿´óÓÚ×óÀ¨ºÅ£¬Ö±½Ó»ØÍË
-//	if (left > n) return;		//×óÀ¨ºÅÊýÁ¿´óÓÚn£¬Ö±½Ó»ØÍË
-//	
-//	if (str.length() == 2 * n) {	//³É¹¦ÕÒµ½Ò»¸ö´ð°¸
-//		cout << str << endl;
-//		return;
-//	}
-//
-//	dfs(str + '(', left + 1, right);
-//	dfs(str + ')', left, right + 1);
-//
-//	return;
-//}
-//
-//int main(void) {
-//	cin >> n;
-//	cout << n << "¶ÔÀ¨ºÅËùÓÐ¿ÉÄÜµÄºÏ·¨Æ¥ÅäÐòÁÐÎª:" << endl;
-//	dfs("", 0, 0);
-//	return 0;
-//}
+/* åªè€ƒè™‘ä¸€ç§æ‹¬å·ï¼Œnå¯¹æ‹¬å·å…±æœ‰å¤šå°‘ç§å¯èƒ½çš„åˆæ³•åŒ¹é…åºåˆ—ï¼Ÿ */
+
+/* è¿™ä¸ªé—®é¢˜çš„ç­”æ¡ˆæ˜¾ç„¶æ˜¯ä¸€ä¸ªå¡ç‰¹å…°æ•°ï¼Œæˆ‘ä»¬ä»Šå¤©è¦è§£å†³çš„æ˜¯å¦‚ä½•å°†æ‰€æœ‰åˆæ³•çš„æƒ…å†µå…¨éƒ¨ç”Ÿæˆå‡ºæ¥ */
+
+/* å¯¹äºŽè¿™ä¸ªé—®é¢˜ï¼Œæˆ‘ä»¬å¯ä»¥é‡‡ç”¨å›žæº¯ç®—æ³•åŽ»ç”Ÿæˆä¸€é¢—äºŒå‰æ ‘ï¼Œå°†æ‰€æœ‰å¯èƒ½çš„æƒ…å†µéåŽ†å‡ºæ¥ï¼Œ
+ä½†æ˜¯è¿™æ ·çš„è¯å¤ªè¿‡äºŽæš´åŠ›ï¼Œæˆ‘ä»¬å¯ä»¥åŠ ä¸Šå‰ªæžçš„ç­–ç•¥ï¼Œ
+åœ¨ä»€ä¹ˆæƒ…å†µä¸‹ï¼Œæˆ‘ä»¬å¯ä»¥ç›´æŽ¥æ”¾å¼ƒä¸‹é¢çš„ç”Ÿæˆå‘¢ï¼Œåªéœ€è¦æŠŠæ¡ä½ä¸¤ç‚¹ï¼š
+ï¼ˆ1ï¼‰å³æ‹¬å·çš„æ•°é‡ç»å¯¹ä¸èƒ½è¶…è¿‡å·¦æ‹¬å·ï¼›
+ï¼ˆ2ï¼‰å·¦æ‹¬å·çš„æ•°é‡ä¸èƒ½è¶…è¿‡n */
+
+#include <iostream>
+
+using namespace std;
+
+int n;
+
+void dfs(string str, int left, int right) {
+	if (right > left) return;	//å³æ‹¬å·æ•°é‡å¤§äºŽå·¦æ‹¬å·ï¼Œç›´æŽ¥å›žé€€
+	if (left > n) return;		//å·¦æ‹¬å·æ•°é‡å¤§äºŽnï¼Œç›´æŽ¥å›žé€€
+	
+	if (str.length() == 2 * n) {	//æˆåŠŸæ‰¾åˆ°ä¸€ä¸ªç­”æ¡ˆ
+		cout << str << endl;
+		return;
+	}
+
+	dfs(str + '(', left + 1, right);
+	dfs(str + ')', left, right + 1);
+
+	return;
+}
+
+int main(void) {
+	cin >> n;
+	cout << n << "å¯¹æ‹¬å·æ‰€æœ‰å¯èƒ½çš„åˆæ³•åŒ¹é…åºåˆ—ä¸º:" << endl;
+	dfs("", 0, 0);
+	return 0;
+}
