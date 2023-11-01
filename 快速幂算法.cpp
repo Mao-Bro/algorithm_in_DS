@@ -1,22 +1,22 @@
-///* ÎÊÌâÊÇÕâÑùµÄ£º¸ø¶¨Ò»¸öÊµÊýaºÍÒ»¸öÕûÊýn(±£Ö¤Á½Õß²»»áÍ¬Ê±ÎªÁã)£¬ÒªÇó¼ÆËã³öa^n£¬Ïàµ±ÓÚÊµÏÖÒ»¸öpow( )º¯Êý */
-//#include <iostream>
-//
-//using namespace std;
-//
-//int a, n;
-//
-//double myPow(double a, int n) {
-//	if (n == 0) return 1.0;
-//
-//	if (n % 2 == 0) return myPow(a * a, n / 2);
-//	else return myPow(a * a, n / 2) * a;
-//}
-//
-//int main(void) {
-//	cin >> a >> n;
-//
-//	if (n < 0) cout << a << "µÄ" << n << "´Î·½Îª£º" <<  1.0 / myPow(a, n);
-//	else cout << a << "µÄ" << n << "´Î·½Îª£º" << myPow(a, n);
-//		 
-//	return 0;
-//}
+/* é—®é¢˜æ˜¯è¿™æ ·çš„ï¼šç»™å®šä¸€ä¸ªå®žæ•°aå’Œä¸€ä¸ªæ•´æ•°n(ä¿è¯ä¸¤è€…ä¸ä¼šåŒæ—¶ä¸ºé›¶)ï¼Œè¦æ±‚è®¡ç®—å‡ºa^nï¼Œç›¸å½“äºŽå®žçŽ°ä¸€ä¸ªpow( )å‡½æ•° */
+#include <iostream>
+
+using namespace std;
+
+int a, n;
+
+double myPow(double a, int n) {
+	if (n == 0) return 1.0;
+
+	if (n % 2 == 0) return myPow(a * a, n / 2);
+	else return myPow(a * a, n / 2) * a;
+}
+
+int main(void) {
+	cin >> a >> n;
+
+	if (n < 0) cout << a << "çš„" << n << "æ¬¡æ–¹ä¸ºï¼š" <<  1.0 / myPow(a, n);
+	else cout << a << "çš„" << n << "æ¬¡æ–¹ä¸ºï¼š" << myPow(a, n);
+		 
+	return 0;
+}
