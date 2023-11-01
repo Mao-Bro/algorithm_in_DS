@@ -1,71 +1,71 @@
-//#include <iostream>
-//
-//using namespace std;
-//
-///*
-//							ÖøÃûµÄÔ¼Éª·òÎÊÌâ£º
-//N¸öÈËÎ§³ÉÒ»È¦£¬´ÓµÚÒ»¸ö¿ªÊ¼±¨Êı£¬µÚM¸öÈË³öÁĞ£¬²»¶ÏÑ­»·£¬°´Ë³ĞòÊä³ö³öÁĞÈËµÄ±àºÅ¡£
-//ÀıÈçN=6£¬M=5£¬³öÁĞÈËµÄĞòºÅÎª5£¬4£¬6£¬2£¬3¡£×îºóÊ£ÏÂ1ºÅ¡£
-//*/
-//struct Node {
-//	int val;
-//	struct Node* next;
-//	Node() : val(0), next(nullptr) { }
-//	Node(int _val): val(_val), next(nullptr) { }
-//};
-//
-////ÏÂÃæÊµÏÖÒ»¸öÑ­»·Á´±í£º
-//class circular_list {
-//public:
-//	circular_list() {
-//		this->head = new Node(1);
-//		this->head->next = this->head;
-//	}
-//
-//	void insert(int _val) {		//Í·²å·¨²åÈëÒ»¸ö½Úµãµ½Ñ­»·Á´±íµ±ÖĞ
-//		struct Node* newNode = new Node(_val);
-//		newNode->next = this->head->next;
-//		this->head->next = newNode;
-//		newNode = nullptr;
-//	}
-//
-//	struct Node* head;
-//};
-//
-//int main(void) {
-//	int N = 0, M = 0;		//N¸öÈË£¬Êıµ½µÚM¸öÈË³öÁĞ
-//	cin >> N >> M;
-//
-//	circular_list clist = circular_list();
-//	for (int i = N; i >= 2; i--) clist.insert(i);		//²åÈëN¸ö½Úµã±íÊ¾N¸öÈË
-//
-//	struct Node* ptr = clist.head;
-//	int count = 1;
-//	cout << "³öÁĞĞòÁĞÎª£º";
-//	while (ptr->next != ptr) {
-//		if (count == M) {
-//			struct Node* n = ptr->next;
-//
-//			cout << ptr->val << " ";
-//			ptr->val = ptr->next->val;
-//			ptr->next = ptr->next->next;
-//
-//			n->next = nullptr;
-//			delete(n);
-//			n = nullptr;
-//
-//			count = 1;
-//		}
-//		else {
-//			ptr = ptr->next;
-//			count++;
-//		}
-//	}
-//	cout << endl << "×îºóÒ»¸öÈËÎª£º" << ptr->val;
-//
-//	ptr->next = nullptr;
-//	delete(ptr);
-//	ptr = nullptr;
-//
-//	return 0;
-//}
+#include <iostream>
+
+using namespace std;
+
+/*
+							è‘—åçš„çº¦ç‘Ÿå¤«é—®é¢˜ï¼š
+Nä¸ªäººå›´æˆä¸€åœˆï¼Œä»ç¬¬ä¸€ä¸ªå¼€å§‹æŠ¥æ•°ï¼Œç¬¬Mä¸ªäººå‡ºåˆ—ï¼Œä¸æ–­å¾ªç¯ï¼ŒæŒ‰é¡ºåºè¾“å‡ºå‡ºåˆ—äººçš„ç¼–å·ã€‚
+ä¾‹å¦‚N=6ï¼ŒM=5ï¼Œå‡ºåˆ—äººçš„åºå·ä¸º5ï¼Œ4ï¼Œ6ï¼Œ2ï¼Œ3ã€‚æœ€åå‰©ä¸‹1å·ã€‚
+*/
+struct Node {
+	int val;
+	struct Node* next;
+	Node() : val(0), next(nullptr) { }
+	Node(int _val): val(_val), next(nullptr) { }
+};
+
+//ä¸‹é¢å®ç°ä¸€ä¸ªå¾ªç¯é“¾è¡¨ï¼š
+class circular_list {
+public:
+	circular_list() {
+		this->head = new Node(1);
+		this->head->next = this->head;
+	}
+
+	void insert(int _val) {		//å¤´æ’æ³•æ’å…¥ä¸€ä¸ªèŠ‚ç‚¹åˆ°å¾ªç¯é“¾è¡¨å½“ä¸­
+		struct Node* newNode = new Node(_val);
+		newNode->next = this->head->next;
+		this->head->next = newNode;
+		newNode = nullptr;
+	}
+
+	struct Node* head;
+};
+
+int main(void) {
+	int N = 0, M = 0;		//Nä¸ªäººï¼Œæ•°åˆ°ç¬¬Mä¸ªäººå‡ºåˆ—
+	cin >> N >> M;
+
+	circular_list clist = circular_list();
+	for (int i = N; i >= 2; i--) clist.insert(i);		//æ’å…¥Nä¸ªèŠ‚ç‚¹è¡¨ç¤ºNä¸ªäºº
+
+	struct Node* ptr = clist.head;
+	int count = 1;
+	cout << "å‡ºåˆ—åºåˆ—ä¸ºï¼š";
+	while (ptr->next != ptr) {
+		if (count == M) {
+			struct Node* n = ptr->next;
+
+			cout << ptr->val << " ";
+			ptr->val = ptr->next->val;
+			ptr->next = ptr->next->next;
+
+			n->next = nullptr;
+			delete(n);
+			n = nullptr;
+
+			count = 1;
+		}
+		else {
+			ptr = ptr->next;
+			count++;
+		}
+	}
+	cout << endl << "æœ€åä¸€ä¸ªäººä¸ºï¼š" << ptr->val;
+
+	ptr->next = nullptr;
+	delete(ptr);
+	ptr = nullptr;
+
+	return 0;
+}
