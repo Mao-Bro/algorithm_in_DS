@@ -1,94 +1,94 @@
-///* ÎÒÃÇÊµÏÖÒÔÏÂÍøÂçä¯ÀÀÆ÷µ±ÖĞÊ®·Ö³£¼ûµÄÁ½Ïî¹¦ÄÜ£º
-//£¨1£©¶ÔÓÃ»§×î½ü·ÃÎÊµÄÍøÒ³½øĞĞ¡°Ç°½ø¡±£»
-//£¨2£©¶ÔÓÃ»§×î½ü·ÃÎÊµÄÍøÒ³½øĞĞ¡°ºóÍË¡±£»*/
-//
-//#include <iostream>
-//#include <stack>
-//
-//using namespace std;
-//
-//class _WEB {
-//private:
-//	stack<string> backward;
-//	stack<string> forward;
-//	string web_now;			//¸Ã×Ö·û´®´æ´¢×ÅÓÃ»§µ±Ç°·ÃÎÊµÄÍøÒ³
-//
-//public:
-//	_WEB() {
-//		this->web_now = "ÆğÊ¼Ò³";
-//		cout << "»¶Ó­Ê¹ÓÃ_WEB" << endl;
-//		this->SHOW();
-//	}
-//
-//	//ÎÒÃÇÏÈÌá¹©Ò»¸öÏÔÊ¾µ±Ç°ÓÃ»§ÕıÔÚ·ÃÎÊÒ³ÃæµÄ½Ó¿Ú£º
-//	void SHOW() {
-//		cout << endl;
-//		cout << "µ±Ç°ÓÃ»§ÕıÔÚ·ÃÎÊµÄÒ³ÃæÎª https:// " << this->web_now << endl;
-//	}
-//
-//	//ÎÒÃÇÌá¹©Ò»¸ö¹©ÓÃ»§·µ»Øµ½ÉÏÒ»¸ö·ÃÎÊÒ³ÃæµÄ½Ó¿Ú£º
-//	void BACK() {
-//		if (this->backward.empty()) {
-//			this->SHOW();
-//		}
-//		else {
-//			this->forward.push(this->web_now);
-//			this->web_now = this->backward.top();
-//			this->backward.pop();
-//			this->SHOW();
-//		}
-//	}
-//
-//	//ÎÒÃÇÌá¹©Ò»¸ö¹©ÓÃ»§Ç°½øµ½ÏÂÒ»¸ö½çÃæµÄ½Ó¿Ú£º
-//	void FORWARD() {
-//		if (this->forward.empty()) {
-//			this->SHOW();
-//		}
-//		else {
-//			this->backward.push(this->web_now);
-//			this->web_now = this->forward.top();
-//			this->forward.pop();
-//			this->SHOW();
-//		}
-//	}
-//
-//	//ÎÒÃÇÌá¹©Ò»¸ö¹©ÓÃ»§·ÃÎÊĞÂÒ³ÃæµÄ½Ó¿Ú;
-//	void VISIT(string new_web) {
-//		this->backward.push(this->web_now);
-//		this->web_now = new_web;
-//		while (!this->forward.empty()) {
-//			this->forward.pop();
-//		}
-//		this->SHOW();
-//	}
-//};
-//
-//int main(void) {
-//	//²âÊÔ³ÌĞò£ºÎÒÃÇÏÈ´ò¿ªä¯ÀÀÆ÷
-//	//·ÃÎÊbilibili
-//	//·ÃÎÊleetcode
-//	//·ÃÎÊÀ¶ÇÅ±­¹ÙÍø
-//	//»ØÍËµ½leetcode
-//	//»ØÍËµ½bilibili
-//	//»ØÍËµ½ÆğÊ¼Ò³
-//	//ÎŞĞ§»ØÍË
-//	//Ç°½øµ½bilibili
-//	//Ç°½øµ½leetcode
-//	//·ÃÎÊjlu.edu.cn
-//	//ÎŞĞ§Ç°½ø
-//	//ÍË»Øµ½leetcode
-//	class _WEB test = _WEB();
-//	test.VISIT("bilibili.com");
-//	test.VISIT("leetcode.com");
-//	test.VISIT("lanqiaoCUP.com");
-//	test.BACK();
-//	test.BACK();
-//	test.BACK();
-//	test.BACK();
-//	test.FORWARD();
-//	test.FORWARD();
-//	test.VISIT("jlu.edu.cn");
-//	test.FORWARD();
-//	test.BACK();
-//	return 0;
-//}
+/* æˆ‘ä»¬å®ç°ä»¥ä¸‹ç½‘ç»œæµè§ˆå™¨å½“ä¸­ååˆ†å¸¸è§çš„ä¸¤é¡¹åŠŸèƒ½ï¼š
+ï¼ˆ1ï¼‰å¯¹ç”¨æˆ·æœ€è¿‘è®¿é—®çš„ç½‘é¡µè¿›è¡Œâ€œå‰è¿›â€ï¼›
+ï¼ˆ2ï¼‰å¯¹ç”¨æˆ·æœ€è¿‘è®¿é—®çš„ç½‘é¡µè¿›è¡Œâ€œåé€€â€ï¼›*/
+
+#include <iostream>
+#include <stack>
+
+using namespace std;
+
+class _WEB {
+private:
+	stack<string> backward;
+	stack<string> forward;
+	string web_now;			//è¯¥å­—ç¬¦ä¸²å­˜å‚¨ç€ç”¨æˆ·å½“å‰è®¿é—®çš„ç½‘é¡µ
+
+public:
+	_WEB() {
+		this->web_now = "èµ·å§‹é¡µ";
+		cout << "æ¬¢è¿ä½¿ç”¨_WEB" << endl;
+		this->SHOW();
+	}
+
+	//æˆ‘ä»¬å…ˆæä¾›ä¸€ä¸ªæ˜¾ç¤ºå½“å‰ç”¨æˆ·æ­£åœ¨è®¿é—®é¡µé¢çš„æ¥å£ï¼š
+	void SHOW() {
+		cout << endl;
+		cout << "å½“å‰ç”¨æˆ·æ­£åœ¨è®¿é—®çš„é¡µé¢ä¸º https:// " << this->web_now << endl;
+	}
+
+	//æˆ‘ä»¬æä¾›ä¸€ä¸ªä¾›ç”¨æˆ·è¿”å›åˆ°ä¸Šä¸€ä¸ªè®¿é—®é¡µé¢çš„æ¥å£ï¼š
+	void BACK() {
+		if (this->backward.empty()) {
+			this->SHOW();
+		}
+		else {
+			this->forward.push(this->web_now);
+			this->web_now = this->backward.top();
+			this->backward.pop();
+			this->SHOW();
+		}
+	}
+
+	//æˆ‘ä»¬æä¾›ä¸€ä¸ªä¾›ç”¨æˆ·å‰è¿›åˆ°ä¸‹ä¸€ä¸ªç•Œé¢çš„æ¥å£ï¼š
+	void FORWARD() {
+		if (this->forward.empty()) {
+			this->SHOW();
+		}
+		else {
+			this->backward.push(this->web_now);
+			this->web_now = this->forward.top();
+			this->forward.pop();
+			this->SHOW();
+		}
+	}
+
+	//æˆ‘ä»¬æä¾›ä¸€ä¸ªä¾›ç”¨æˆ·è®¿é—®æ–°é¡µé¢çš„æ¥å£;
+	void VISIT(string new_web) {
+		this->backward.push(this->web_now);
+		this->web_now = new_web;
+		while (!this->forward.empty()) {
+			this->forward.pop();
+		}
+		this->SHOW();
+	}
+};
+
+int main(void) {
+	//æµ‹è¯•ç¨‹åºï¼šæˆ‘ä»¬å…ˆæ‰“å¼€æµè§ˆå™¨
+	//è®¿é—®bilibili
+	//è®¿é—®leetcode
+	//è®¿é—®è“æ¡¥æ¯å®˜ç½‘
+	//å›é€€åˆ°leetcode
+	//å›é€€åˆ°bilibili
+	//å›é€€åˆ°èµ·å§‹é¡µ
+	//æ— æ•ˆå›é€€
+	//å‰è¿›åˆ°bilibili
+	//å‰è¿›åˆ°leetcode
+	//è®¿é—®jlu.edu.cn
+	//æ— æ•ˆå‰è¿›
+	//é€€å›åˆ°leetcode
+	class _WEB test = _WEB();
+	test.VISIT("bilibili.com");
+	test.VISIT("leetcode.com");
+	test.VISIT("lanqiaoCUP.com");
+	test.BACK();
+	test.BACK();
+	test.BACK();
+	test.BACK();
+	test.FORWARD();
+	test.FORWARD();
+	test.VISIT("jlu.edu.cn");
+	test.FORWARD();
+	test.BACK();
+	return 0;
+}
